@@ -1,9 +1,25 @@
-module image_normalization(
-    input logic [7:0] pixel_in,
+module PixelNormalizer(
+    input  logic        clk,
+    input  logic        rst,
+    input  logic        valid_in,
+    input  logic [7:0]  pixel_in,
+    output logic        valid_out,
     output logic [15:0] pixel_out
 );
-    always_comb begin
-        // Convert to fixed point: (pixel_in << 8) / 255
-        pixel_out = (pixel_in << 8) / 8'd255;
+
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst) begin
+            pixel_out  <= 16'd0;
+            valid_out  <= 1'b0;
+        end else begin
+            if (valid_in) begin
+                // Normalize: (pixel_in << 8) / 255 => Q8.8 fixed-point
+                pixel_out <= (pixel_in << 8) / 8'd255;
+                valid_out <= 1'b1;
+            end else begin
+                valid_out <= 1'b0;
+            end
+        end
     end
+
 endmodule
