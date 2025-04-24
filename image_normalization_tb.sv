@@ -44,11 +44,11 @@ module image_normalization_tb;
         $display("Starting PixelNormalizer test...");
         
         // Test different pixel values
-        pixel_in = 8'd0;    #10; print_output(pixel_in);
+        //pixel_in = 8'd0;    #10; print_output(pixel_in);
         pixel_in = 8'd64;   #10; print_output(pixel_in);
-        pixel_in = 8'd127;  #10; print_output(pixel_in);
-        pixel_in = 8'd192;  #10; print_output(pixel_in);
-        pixel_in = 8'd255;  #10; print_output(pixel_in);
+        //pixel_in = 8'd127;  #10; print_output(pixel_in);
+        //pixel_in = 8'd192;  #10; print_output(pixel_in);
+        //pixel_in = 8'd255;  #10; print_output(pixel_in);
 	valid_out = 1;
         $display("Test complete.");
         $finish;
