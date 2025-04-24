@@ -13,7 +13,7 @@ module PixelNormalizer(
             valid_out  <= 1'b0;
         end else begin
             if (valid_in) begin
-                // Normalize: (pixel_in << 8) / 255 => Q8.8 fixed-point
+                // Norm
                 pixel_out <= (pixel_in << 8) / 8'd255;
                 valid_out <= 1'b1;
             end else begin
