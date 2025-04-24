@@ -12,7 +12,7 @@ module image_normalization_tb;
         .pixel_out(pixel_out),
         .clk(clk),
         .rst(rst),
-        .valin_in(valid_in),
+        .valid_in(valid_in),
         .valid_out(valid_out)
     );
 
@@ -26,21 +26,30 @@ module image_normalization_tb;
     
     initial begin
 	    #10
-        rst = 1;      
+        rst = 1;
+	valid_in = 0;
+	pixel_in = 0;
         #20;           
         rst = 0;      
     end 
         
     initial begin
+	#50 //wait for reset
+	valid_in = 1;
+	pixel_in = 0;
+	
+	#10;
+	valid_in = 0;
+	
         $display("Starting PixelNormalizer test...");
         
         // Test different pixel values
-        pixel_in = 8'd0;    #1; print_output(pixel_in);
-        pixel_in = 8'd64;   #1; print_output(pixel_in);
-        pixel_in = 8'd127;  #1; print_output(pixel_in);
-        pixel_in = 8'd192;  #1; print_output(pixel_in);
-        pixel_in = 8'd255;  #1; print_output(pixel_in);
-
+        pixel_in = 8'd0;    #10; print_output(pixel_in);
+        pixel_in = 8'd64;   #10; print_output(pixel_in);
+        pixel_in = 8'd127;  #10; print_output(pixel_in);
+        pixel_in = 8'd192;  #10; print_output(pixel_in);
+        pixel_in = 8'd255;  #10; print_output(pixel_in);
+	valid_out = 1;
         $display("Test complete.");
         $finish;
     end
