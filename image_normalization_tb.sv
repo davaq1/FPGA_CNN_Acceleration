@@ -2,11 +2,18 @@ module image_normalization_tb;
 
     logic [7:0] pixel_in;
     logic [15:0] pixel_out;
-
+    logic rst;
+    logic clk;
+    logic valid_out;
+    logic valid_in;
     // Instantiate your module
     PixelNormalizer uut (
         .pixel_in(pixel_in),
-        .pixel_out(pixel_out)
+        .pixel_out(pixel_out),
+        .clk(clk),
+        .rst(rst),
+        .valin_in(valid_in),
+        valid_out(valid_out)
     );
 
     // Task to display result in both fixed-point and approximate decimal
@@ -20,8 +27,12 @@ module image_normalization_tb;
     endtask
 
     initial begin
+        clk=0;
+        repeat ()
+        
+    initial begin
         $display("Starting PixelNormalizer test...");
-
+        
         // Test different pixel values
         pixel_in = 8'd0;    #1; print_output(pixel_in);
         pixel_in = 8'd64;   #1; print_output(pixel_in);
