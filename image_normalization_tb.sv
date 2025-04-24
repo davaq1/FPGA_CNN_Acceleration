@@ -20,7 +20,7 @@ module image_normalization_tb;
     initial begin
         clk=0;
         repeat (2_000_000_000) begin
-            #500_000 clk = ~clk;
+            #5 clk = ~clk;
         end
     end
     
@@ -39,7 +39,6 @@ module image_normalization_tb;
 	pixel_in = 0;
 	
 	#10;
-	valid_in = 0;
 	
         $display("Starting PixelNormalizer test...");
         
@@ -50,6 +49,10 @@ module image_normalization_tb;
         //pixel_in = 8'd192;  #10; print_output(pixel_in);
         //pixel_in = 8'd255;  #10; print_output(pixel_in);
 	valid_out = 1;
+
+	#10;
+	valid_in = 0;
+
         $display("Test complete.");
         $finish;
     end
@@ -68,7 +71,7 @@ module image_normalization_tb;
         real float_val;
         begin
             float_val = pixel_out / 256.0;
-            $display("pixel_in = %0d --> pixel_out = 0x%04h (≈ %f)", val, pixel_out, float_val);
+            $display("pixel_in = %0d --> pixel_out = 0x%04h (Ã¢ÂÂ %f)", val, pixel_out, float_val);
         end
     endtask
     // display what is happening while running
