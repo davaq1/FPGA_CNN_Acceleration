@@ -15,5 +15,6 @@ module node_op(
   // load all (3?) arrays
   //do first calculation and load
   //dp second calculation and load
+  // place in accumulator. Then tell world x is ready (valid_out = 1)
 
   
