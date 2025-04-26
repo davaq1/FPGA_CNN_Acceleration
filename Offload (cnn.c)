@@ -1,0 +1,8 @@
+for (int i = 0; i < self->nnodes; i++) {
+        /* Compute Y = (W * X + B) without activation function. */
+        double x = self->biases[i];
+        for (int j = 0; j < lprev->nnodes; j++) {
+            x += (lprev->outputs[j] * self->weights[k++]);
+        }
+        self->outputs[i] = x;
+    }
