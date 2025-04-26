@@ -3,12 +3,12 @@ module node_op(
   input logic  rst,
   input logic valid_in,
 
-  input logic prev_outputs,
-  input logic weigths,
-  input logic biases,
+  input logic [15:0] prev_outputs,
+  input logic [15:0] weights,
+  input logic [15:0] biases,
   
   output logic valid_out,
-  output logic x,
+  output logic [15:0] x,
 );
 
 
