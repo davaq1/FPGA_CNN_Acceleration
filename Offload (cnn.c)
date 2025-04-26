@@ -6,3 +6,13 @@ for (int i = 0; i < self->nnodes; i++) {
         }
         self->outputs[i] = x;
     }
+
+// For offloading
+// FPGA Inputs:
+// Load previous outputs
+// Load or have fixed weights? 
+// Load or have fixed biases?
+
+//FPGA Outputs:
+// They (weights and biases) would need to be stored back to C memory
+// Output of calculation (x)
