@@ -10,7 +10,7 @@ module PixelNormalizer #(
     output logic [15:0] pixel_out
 );
 
-        // Internal signals
+    //..
     logic signed [15:0] biases      [0:M-1];
     logic signed [15:0] weights     [0:M*N-1];
     logic signed [15:0] prev_outputs[0:N-1];
@@ -34,7 +34,7 @@ module PixelNormalizer #(
                 end
                 end
             // Update above
-            pixel_out <= x[0][15:0]; // You might want to choose how to output all M values
+                pixel_out <= x[0][15:0]; // review
             valid_out <= 1'b1;
             end else begin
                 valid_out <= 1'b0;
