@@ -33,8 +33,8 @@ module PixelNormalizer #(
                     k = k + 1;
                 end
                 end
-            // Update above
-                pixel_out <= x[0][15:0]; // review
+                // update end
+            pixel_out <= x[0][15:0]; // review
             valid_out <= 1'b1;
             end else begin
                 valid_out <= 1'b0;
