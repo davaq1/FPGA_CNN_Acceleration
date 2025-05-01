@@ -44,7 +44,7 @@ module node_op #(
                 end
                 end
                 // update end
-            pixel_out <= x[0][15:0]; // review
+            x <= x[0]; // review
             valid_out <= 1'b1;
             end else begin
                 valid_out <= 1'b0;
